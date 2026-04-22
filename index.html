@@ -3,60 +3,468 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Gym Trainer</title>
+    <title>AI Gym Trainer | Your Personal Fitness Assistant</title>
+    <meta name="description" content="AI Gym Trainer - Your intelligent personal fitness assistant. Get customized workout plans, BMI calculations, and fitness guidance powered by AI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
 
-    <!-- HERO SECTION -->
-    <section style="text-align:center; padding:50px;">
-        <h1>💪 AI Gym Trainer</h1>
-        <p>Your Personal Fitness Assistant</p>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🏋️</span>
+                <span class="logo-text">AI Gym<span class="accent">Trainer</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#workouts" class="nav-link">Workouts</a></li>
+                <li><a href="#bmi" class="nav-link">BMI</a></li>
+                <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+            </ul>
+            <button class="chat-btn" id="openChatBtn" onclick="openChat()">
+                <span class="chat-btn-icon">💬</span>
+                Talk to Trainer
+            </button>
+            <button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
 
-        <button onclick="toggleChat()" style="padding:10px 20px; font-size:16px;">
-            💬 Talk to Trainer
-        </button>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">🔥 AI-Powered Fitness</div>
+            <h1 class="hero-title">
+                Your Personal
+                <span class="gradient-text">AI Gym Trainer</span>
+            </h1>
+            <p class="hero-subtitle">
+                Get customized workout plans, track your BMI, and achieve your fitness goals 
+                with our intelligent chatbot assistant. No more guessing — just results.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="openChat()">
+                    <span>💪</span> Start Training Now
+                </button>
+                <a href="#features" class="btn btn-outline">
+                    <span>🎯</span> Explore Features
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-target="7">0</span>
+                    <span class="stat-label">Workout Types</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-target="35">0</span><span>+</span>
+                    <span class="stat-label">Exercises</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-target="3">0</span>
+                    <span class="stat-label">Fitness Goals</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Available</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-card card-1">
+                <div class="card-icon">🏋️</div>
+                <div class="card-text">Chest & Back</div>
+                <div class="card-sub">5 exercises each</div>
+            </div>
+            <div class="hero-card card-2">
+                <div class="card-icon">🧮</div>
+                <div class="card-text">BMI: 22.5</div>
+                <div class="card-sub">Normal ✅</div>
+            </div>
+            <div class="hero-card card-3">
+                <div class="card-icon">🔥</div>
+                <div class="card-text">Weight Loss</div>
+                <div class="card-sub">Cardio + Fat Burn</div>
+            </div>
+        </div>
     </section>
 
-    <!-- FEATURES -->
-    <section style="padding:40px;">
-        <h2>Features</h2>
-        <ul>
-            <li>📏 Smart Data Input</li>
-            <li>🧮 BMI Calculator</li>
-            <li>🎯 Goal-Based Workout</li>
-            <li>🏋️ Multiple Workout Plans</li>
-        </ul>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">✨ Features</span>
+                <h2 class="section-title">Everything You Need to <span class="gradient-text">Get Fit</span></h2>
+                <p class="section-subtitle">Our AI-powered trainer offers a complete fitness experience right at your fingertips</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">📏</div>
+                    </div>
+                    <h3>Smart Data Collection</h3>
+                    <p>Share your height, weight, age & gender in any format. Our AI understands natural language inputs.</p>
+                    <div class="feature-example">"170 65 21 male" ✅</div>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">🧮</div>
+                    </div>
+                    <h3>BMI Calculator</h3>
+                    <p>Instantly calculate your Body Mass Index with classification — Underweight, Normal, Overweight, or Obese.</p>
+                    <div class="feature-example">"calculate bmi" → 22.5 (Normal) 💪</div>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">🎯</div>
+                    </div>
+                    <h3>Goal-Based Plans</h3>
+                    <p>Whether it's weight loss, weight gain, or muscle building — get tailored recommendations instantly.</p>
+                    <div class="feature-example">Supports goal combinations!</div>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">🏋️</div>
+                    </div>
+                    <h3>Multi-Workout Plans</h3>
+                    <p>Select multiple muscle groups at once. Get detailed exercises with sets and reps for each.</p>
+                    <div class="feature-example">"chest and back" → 10 exercises</div>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">🧠</div>
+                    </div>
+                    <h3>Smart Memory</h3>
+                    <p>The bot remembers your details throughout the conversation. No need to repeat yourself.</p>
+                    <div class="feature-example">Context-aware responses</div>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">⚡</div>
+                    </div>
+                    <h3>Instant Responses</h3>
+                    <p>Powered by Google Dialogflow for lightning-fast, accurate responses 24/7.</p>
+                    <div class="feature-example">Always available!</div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- CHATBOT (DIALOGFLOW) -->
-    <div id="chatbot" style="
-        display:none;
-        position:fixed;
-        bottom:20px;
-        right:20px;
-        z-index:999;
-        box-shadow:0 0 15px rgba(0,0,0,0.3);
-    ">
-        <iframe 
-            height="430" 
-            width="350" 
-            src="https://bot.dialogflow.com/49c0b8ba-612f-4f88-8f22-1c1b760135ce">
-        </iframe>
+    <!-- Workouts Section -->
+    <section class="workouts" id="workouts">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">💪 Workouts</span>
+                <h2 class="section-title">Train Every <span class="gradient-text">Muscle Group</span></h2>
+                <p class="section-subtitle">7 workout categories with 5 exercises each — all curated by fitness experts</p>
+            </div>
+            <div class="workouts-grid">
+                <div class="workout-card" onclick="openChat()">
+                    <div class="workout-emoji">💪</div>
+                    <h3>Chest</h3>
+                    <ul>
+                        <li>Push-ups</li>
+                        <li>Bench Press</li>
+                        <li>Incline Dumbbell Press</li>
+                        <li>Cable Flyes</li>
+                        <li>Dips</li>
+                    </ul>
+                    <div class="workout-tag">5 exercises</div>
+                </div>
+                <div class="workout-card" onclick="openChat()">
+                    <div class="workout-emoji">🔥</div>
+                    <h3>Back</h3>
+                    <ul>
+                        <li>Pull-ups</li>
+                        <li>Deadlift</li>
+                        <li>Bent-over Rows</li>
+                        <li>Lat Pulldown</li>
+                        <li>Seated Cable Row</li>
+                    </ul>
+                    <div class="workout-tag">5 exercises</div>
+                </div>
+                <div class="workout-card" onclick="openChat()">
+                    <div class="workout-emoji">💪</div>
+                    <h3>Biceps</h3>
+                    <ul>
+                        <li>Barbell Curls</li>
+                        <li>Hammer Curls</li>
+                        <li>Concentration Curls</li>
+                        <li>Cable Curls</li>
+                        <li>Preacher Curls</li>
+                    </ul>
+                    <div class="workout-tag">5 exercises</div>
+                </div>
+                <div class="workout-card" onclick="openChat()">
+                    <div class="workout-emoji">🏋️</div>
+                    <h3>Triceps</h3>
+                    <ul>
+                        <li>Tricep Dips</li>
+                        <li>Skull Crushers</li>
+                        <li>Tricep Pushdown</li>
+                        <li>Overhead Extension</li>
+                        <li>Close-grip Bench</li>
+                    </ul>
+                    <div class="workout-tag">5 exercises</div>
+                </div>
+                <div class="workout-card" onclick="openChat()">
+                    <div class="workout-emoji">🦵</div>
+                    <h3>Legs</h3>
+                    <ul>
+                        <li>Squats</li>
+                        <li>Leg Press</li>
+                        <li>Lunges</li>
+                        <li>Leg Curls</li>
+                        <li>Calf Raises</li>
+                    </ul>
+                    <div class="workout-tag">5 exercises</div>
+                </div>
+                <div class="workout-card" onclick="openChat()">
+                    <div class="workout-emoji">🎯</div>
+                    <h3>Shoulders</h3>
+                    <ul>
+                        <li>Overhead Press</li>
+                        <li>Lateral Raises</li>
+                        <li>Front Raises</li>
+                        <li>Face Pulls</li>
+                        <li>Arnold Press</li>
+                    </ul>
+                    <div class="workout-tag">5 exercises</div>
+                </div>
+                <div class="workout-card workout-card-wide" onclick="openChat()">
+                    <div class="workout-emoji">🏃</div>
+                    <h3>Cardio</h3>
+                    <ul class="cardio-list">
+                        <li>Running (20-30 mins)</li>
+                        <li>Jump Rope (3 x 3 mins)</li>
+                        <li>Burpees (3 x 15 reps)</li>
+                        <li>Mountain Climbers</li>
+                        <li>High Knees</li>
+                    </ul>
+                    <div class="workout-tag">5 exercises</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BMI Section -->
+    <section class="bmi-section" id="bmi">
+        <div class="container">
+            <div class="bmi-wrapper">
+                <div class="bmi-info">
+                    <span class="section-badge">🧮 BMI Calculator</span>
+                    <h2 class="section-title">Know Your <span class="gradient-text">Body Mass Index</span></h2>
+                    <p>Simply tell our chatbot "calculate bmi" and get instant results with health classification and personalized tips.</p>
+                    <div class="bmi-scale">
+                        <div class="bmi-range underweight">
+                            <span class="range-label">Underweight</span>
+                            <span class="range-value">&lt; 18.5</span>
+                        </div>
+                        <div class="bmi-range normal">
+                            <span class="range-label">Normal</span>
+                            <span class="range-value">18.5 - 24.9</span>
+                        </div>
+                        <div class="bmi-range overweight">
+                            <span class="range-label">Overweight</span>
+                            <span class="range-value">25 - 29.9</span>
+                        </div>
+                        <div class="bmi-range obese">
+                            <span class="range-label">Obese</span>
+                            <span class="range-value">30+</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="openChat()">
+                        <span>🧮</span> Calculate My BMI
+                    </button>
+                </div>
+                <div class="bmi-demo">
+                    <div class="chat-demo">
+                        <div class="chat-demo-header">
+                            <div class="chat-demo-dot"></div>
+                            <div class="chat-demo-dot"></div>
+                            <div class="chat-demo-dot"></div>
+                            <span>AI Gym Trainer</span>
+                        </div>
+                        <div class="chat-demo-body">
+                            <div class="demo-msg user-msg">170 65 21 male</div>
+                            <div class="demo-msg bot-msg">Got it! 💪 Height: 170 cm | Weight: 65 kg | Age: 21 | Gender: male</div>
+                            <div class="demo-msg user-msg">calculate bmi</div>
+                            <div class="demo-msg bot-msg">🧮 Your BMI is <strong>22.5 (Normal) 💪</strong><br>Great shape! Keep it up!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">🚀 How It Works</span>
+                <h2 class="section-title">3 Simple <span class="gradient-text">Steps</span></h2>
+                <p class="section-subtitle">Getting your personalized workout plan is as easy as having a conversation</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">👤</div>
+                    <h3>Share Your Info</h3>
+                    <p>Tell the bot your height, weight, age, and gender. You can type it all in one message!</p>
+                    <div class="step-example">"170 65 21 male"</div>
+                </div>
+                <div class="step-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-arrow">→</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">🎯</div>
+                    <h3>Set Your Goal</h3>
+                    <p>Choose your fitness goal — weight loss, weight gain, muscle building, or even a combination!</p>
+                    <div class="step-example">"weight loss and muscle building"</div>
+                </div>
+                <div class="step-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-arrow">→</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">🔥</div>
+                    <h3>Get Your Plan</h3>
+                    <p>Select muscle groups and receive a complete workout plan with exercises, sets, and reps!</p>
+                    <div class="step-example">"chest and back"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Body? 🔥</h2>
+                <p>Start chatting with your AI Gym Trainer now and get a personalized workout plan in seconds!</p>
+                <button class="btn btn-primary btn-large" onclick="openChat()">
+                    <span>💬</span> Start Chatting Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🏋️</span>
+                    <span class="logo-text">AI Gym<span class="accent">Trainer</span></span>
+                    <p>Your intelligent personal fitness assistant powered by Google Dialogflow.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#features">Features</a>
+                    <a href="#workouts">Workouts</a>
+                    <a href="#bmi">BMI Calculator</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Workouts</h4>
+                    <a href="#workouts">Chest</a>
+                    <a href="#workouts">Back</a>
+                    <a href="#workouts">Legs</a>
+                    <a href="#workouts">Cardio</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 AI Gym Trainer. Built with 💪 and AI.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Chat Widget (Fallback UI) -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-widget-header">
+            <div class="chat-header-info">
+                <span class="chat-avatar">🏋️</span>
+                <div>
+                    <span class="chat-name">AI Gym Trainer</span>
+                    <span class="chat-status">● Online</span>
+                </div>
+            </div>
+            <button class="chat-close" onclick="closeChat()" aria-label="Close chat">✕</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                <div class="message-content">
+                    Hey there! 💪🔥 I'm your <strong>AI Gym Trainer!</strong><br><br>
+                    Share your: Height (cm), Weight (kg), Age, Gender<br>
+                    Example: <em>"170 65 21 male"</em> 📏
+                </div>
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Type your message..." autocomplete="off">
+            <button id="sendBtn" onclick="sendMessage()" aria-label="Send message">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                </svg>
+            </button>
+        </div>
     </div>
 
-    <!-- SCRIPT -->
-    <script>
-        function toggleChat() {
-            let chat = document.getElementById("chatbot");
-            if (chat.style.display === "none") {
-                chat.style.display = "block";
-            } else {
-                chat.style.display = "none";
-            }
-        }
-    </script>
+    <!-- Floating Chat Button -->
+    <button class="chat-fab" id="chatFab" onclick="toggleChat()" aria-label="Open chat">
+        <span class="fab-icon" id="fabIcon">💬</span>
+        <span class="fab-pulse"></span>
+    </button>
 
+    <!-- 
+    ============================================
+    DIALOGFLOW MESSENGER INTEGRATION
+    ============================================
+    To use the official Dialogflow Messenger widget instead of the custom chat:
+    
+    1. Uncomment the lines below
+    2. Replace YOUR_PROJECT_ID with your Google Cloud project ID
+    3. You can find your project ID in Dialogflow ES > Settings > General > Project ID
+    4. Comment out or remove the Custom Chat Widget and Floating Chat Button above
+    
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger-cx/bootstrap.js?v=1"></script>
+    <df-messenger
+        project-id="YOUR_PROJECT_ID"
+        agent-id="YOUR_PROJECT_ID"
+        language-code="en"
+        max-query-length="-1">
+        <df-messenger-chat-bubble chat-title="AI Gym Trainer 🏋️">
+        </df-messenger-chat-bubble>
+    </df-messenger>
+    
+    <style>
+        df-messenger {
+            z-index: 999;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            --df-messenger-font-color: #fff;
+            --df-messenger-font-family: 'Inter', sans-serif;
+            --df-messenger-chat-background: #1a1a2e;
+            --df-messenger-message-user-background: #e94560;
+            --df-messenger-message-bot-background: #16213e;
+            --df-messenger-button-titlebar-color: #e94560;
+            --df-messenger-send-icon-color: #e94560;
+        }
+    </style>
+    ============================================
+    -->
+
+    <script src="script.js"></script>
 </body>
 </html>
